@@ -1,0 +1,268 @@
+*{
+    margin: 0; 
+    padding: 0;
+    font-family:  'Poppins', sans-serif;
+    outline: none; border: none;
+    text-decoration: none;
+    transition: 1s linear;
+    
+}
+
+.header{
+    width: 100%;
+    background-color: rgb(171, 255, 230);
+     position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    box-shadow: 0 2px 10px 3px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+}
+.navbar{ 
+    align-items: center;
+    justify-content: space-between;
+}
+li{
+    list-style-type: none;
+   
+}
+a.nav-link{
+    transition: ease-in-out .2s;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 25px;
+    
+}
+a:hover{
+    color:rgb(8, 0, 44);
+    font-weight: 600;
+}
+
+.body{
+    scroll-behavior: smooth;
+    background-color:rgb(183, 167, 255);
+}
+
+h3{
+  
+    font-size: 30px;
+    font-weight: 200;
+    text-align: center;
+   padding-top: 30px;
+   text-transform: none;
+}
+.container{
+    margin: 10px;
+    width: 100%;
+}
+.container a{
+    color: rgb(8, 0, 44);
+    font-weight: 600;
+}
+
+.group{
+
+    margin: 50px;
+padding: 20px;
+font-size: 15px;
+font-weight:500;
+justify-content: center;
+align-items: center;
+
+}
+
+#email, #username, #password1, #password2, #pnumber,#name,#message{
+    width: 100%;
+    height: 38px;
+    border: 1px solid rgb(180, 177, 177);
+    border-radius: 6px;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    font-size: 18px;
+    outline: none;
+    
+}
+
+
+#agree{
+    margin-right: 6px;
+}
+
+
+.btnn{
+    border: none;
+    background-color:black;
+    width: 100%;
+    justify-content: center;
+    height: 40px;
+    font-size: 20px;
+    margin-top: 30px;
+    color: whitesmoke;
+    border-radius: 3px;
+}
+
+a.btn{
+background-color: black;
+color: whitesmoke;
+
+}
+a.btn:hover{
+    font-size: 21px;
+    transition: ease-in-out 1s;
+    
+}
+
+.btnn:hover{
+    color: rgb(171, 255, 230);
+    box-shadow: 3px 10px 2px rgba(0, 0, 0, 0.3);
+    transition: ease-in-out 1s;
+}
+
+
+
+.box{
+border: 2px solid rgb(14, 1, 72);
+border-radius: 10px ;
+padding: 20px;
+margin: 50px 20px;
+box-shadow: 3px 5px 14px rgba(0, 0, 0, 0.2);
+}
+
+
+.shortener{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.shortener h1{
+    font-weight: 500;
+    font-size: 10rem;
+    margin: 50px;
+font-family: 'Sacramento', cursive;
+}
+.shortener form{
+    height: 100%;
+    width: 30%;
+    text-align: center;
+
+}
+.url-input{
+
+    width:100%;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    padding: 20px;
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.url-input:focus{
+    outline: none;
+}
+.url-submit{
+   cursor: pointer;
+    border-radius: 5px;
+    margin: 15px ;
+    padding: 10px 25px;                                                                                                                                           ;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+    color: rgb(255, 245, 226);
+    text-transform: uppercase;
+    text-align: center;
+    background-color:black; 
+    transition:  ease-in-out .4s;
+    -webkit-transition-duration:0.3s ;
+    transition-duration:0.3s ;
+   
+
+}
+.url-submit:hover, .url-submit:focus, .url-submit:active{
+    box-shadow:  rgba(0, 0, 0, 0.5) 0px 0px 20px;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+
+}
+.message{
+    padding: 30px 50px ;
+    border-radius: 1rem;
+    width: 30%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.message h3{
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.message span{
+    font-size: 1.2rem;
+}
+.success{
+    background-color: rgb(131, 250, 131);
+    border: 3px solid rgb(2, 186, 2);
+}
+
+.error{
+    background-color: rgb(249, 103, 103);
+    border: 3px solid rgb(250, 33, 33);
+}
+
+
+.share-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.3s ease;
+}
+
+.share-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.share-button i {
+
+    margin-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      

@@ -1,0 +1,35 @@
+{% extends "base.html" %} 
+
+{% block content %}
+<h3>Welcome, {{ user.username | capitalize }}!</h3> 
+<section class="shortener">
+    
+        <div class="intro">
+        
+        <h1>Scissors.. </h1>
+        
+    </div>
+    {% for link in user.links%}
+    
+    <li class="">{{link.data}}</li>
+    {%endfor%}
+
+        <form method="POST" action="{{ url_for('views.add_link') }}" >
+            <input type="text"  class="url-input" name="original_url">
+            <br>
+            <input type="submit" class="url-submit" value="shorten">
+        </form>
+
+        
+    </section>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+    

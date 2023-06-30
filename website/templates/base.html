@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Arsenal:wght@400;700&family=DM+Serif+Display:ital@1&family=Italiana&family=JetBrains+Mono:ital,wght@0,100;0,400;0,500;0,800;1,100;1,200&family=Limelight&family=Macondo&family=Mali:ital,wght@0,400;1,200;1,500;1,700&family=Modak&family=Nunito:ital,wght@0,200;0,300;0,400;1,200;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,600&family=Poppins:wght@100;200;300&family=Righteous&family=Sacramento&family=Syne:wght@400;500;600;700&family=Viaoda+Libre&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>{% block title %} Scissors {% endblock %}</title> 
+</head>
+<body class="body">
+   
+  <header class="header">
+    
+    <i class="fa-solid fa-scissors fa-bounce" style="font-size: 50px;"> </i>
+    <ul class="navbar">
+    
+      <li><a href="/home" class="nav-link">Home</a></li>
+    {% if user.is_authenticated %}
+      <li><a href="{{ url_for('views.stats') }}" class="nav-link">Stats</a></li>
+      <li><a href="{{ url_for('views.link_history') }}" class="nav-link">Link History</a></li>
+      
+      
+    <a href="/logout" class="btn">Logout</a>
+    {% else %}         
+      <a href="/signup" class="btn ">Sign Up</a>
+      <a href="/login" style="margin-left: 10px;"  class="btn">Login</a>
+    {% endif%}
+  </ul>
+
+
+  </header>
+
+
+    <div> 
+      {% with messages = get_flashed_messages(with_categories=True) %}
+      {% if messages %}
+         {% for category, message in messages %}
+         {% if category=='error' %}
+         <div class="alert alert-danger alter-dismissible fade show" role="alert">
+               {{ message }}
+               <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              </div>
+              {% else %}
+              <div class="alert alert-success alter-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+               </div>
+              {% endif %}
+          {% endfor%}
+      {% endif %}
+  {% endwith %} 
+  </div>
+    <div>{% block content %} {% endblock %}</div>
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+</body>
+</html>

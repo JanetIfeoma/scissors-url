@@ -1,0 +1,107 @@
+{% extends "base.html" %} 
+
+
+{% block content %} 
+   
+<section class="section">
+    <div class="container">
+        <div class="field">
+            <h1>URL Shortener - Link Added</h1>
+            <label  class="label">Original url</label>
+            <div class="form-control">
+                <input class="input" type="text" name="original_url" value="{{original_url}} ">
+            </div>
+        </div>
+
+        <div class="field">
+            <label  class="label">New url</label>
+            <div class="form-control">
+                <input class="input" type="text" name="original_url" value="{{url_for('views.redirect_to_url', short_url=new_link, _external=True)}}">
+            </div>
+        </div>
+
+
+        
+
+    <p>Your shortened link: <a href="{{ new_link }}">{{ new_link }}</a></p>
+
+    <p>Your qrcode:</p><img src="{{ url_for('views.generate_qr_code', short_url=new_link) }}" alt="QR Code">
+
+<!-- Your shortened link -->
+<p>Your shortened link: <a href="{{ url_for('views.redirect_to_url', short_url=new_link, _external=True) }}">{{ url_for('views.redirect_to_url', short_url=new_link, _external=True) }}</a></p>
+
+<!-- Share buttons -->
+<div class="share-buttons">
+    <a href="https://twitter.com/intent/tweet?url={{ url_for('views.redirect_to_url', short_url=new_link, _external=True) }}" target="_blank" rel="noopener noreferrer" class="share-button">
+        <i class="fab fa-twitter"></i> Share on Twitter
+    </a>
+    <a href="whatsapp://send?text={{ url_for('views.redirect_to_url', short_url=new_link, _external=True) }}" target="_blank" rel="noopener noreferrer" class="share-button">
+        <i class="fab fa-whatsapp"></i> Share on WhatsApp
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ url_for('views.redirect_to_url', short_url=new_link, _external=True) }}" target="_blank" rel="noopener noreferrer" class="share-button">
+        <i class="fab fa-facebook"></i> Share on Facebook
+    </a>
+</div>
+
+
+
+
+    <a class="nav-link" href="/">Shorten Another Link</a>
+    <a  class="nav-link" href="{{ url_for('views.stats') }}">View Stats</a>
+    <a class="nav-link"  href="{{ url_for('views.link_history') }}">View Link History</a>
+
+    <!-- Add this code in your HTML file, preferably at the bottom, before the closing </body> tag -->
+
+<script>
+    // Function to open the share dialog
+    function shareLink(url) {
+        window.open(url, '_blank', 'toolbar=0,status=0,width=626,height=436');
+    }
+    
+    // Attach click event handlers to the share buttons
+    document.addEventListener('DOMContentLoaded', function() {
+        const instagramBtn = document.querySelector('.share-instagram');
+        const twitterBtn = document.querySelector('.share-twitter');
+        const whatsappBtn = document.querySelector('.share-whatsapp');
+        const facebookBtn = document.querySelector('.share-facebook');
+        
+        // Instagram share button click event handler
+        instagramBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            const shareUrl = this.href;
+            shareLink(shareUrl);
+        });
+        
+        // Twitter share button click event handler
+        twitterBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            const shareUrl = this.href;
+            shareLink(shareUrl);
+        });
+        
+        // WhatsApp share button click event handler
+        whatsappBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            const shareUrl = this.href;
+            shareLink(shareUrl);
+        });
+        
+        // Facebook share button click event handler
+        facebookBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            const shareUrl = this.href;
+            shareLink(shareUrl);
+        });
+    });
+</script>
+
+
+
+      
+    </div>
+  </section>
+
+{% endblock %}
+
+  
+

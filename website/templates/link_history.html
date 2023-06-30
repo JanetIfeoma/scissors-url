@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+
+{% block content %} 
+   
+
+<section class="section"> 
+    <h1 style="text-align: center;">Your Link History</h1>
+    <div class="container"> 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Short URL</th>
+                <th>Original URL</th>
+                <th>Visits</th>
+                <th>QR Code</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for link in links %}
+            <tr>
+                <td><a href="{{ link.short_url }}">{{ link.short_url }}</a></td>
+                <td><a href="{{ link.original_url }}">{{ link.original_url }}</a></td>
+                <td>{{ link.visits }}</td>
+                <td>{{ link.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                <td><img width="70px" src="{{ url_for('views.generate_qr_code', short_url=link.short_url) }}" alt="QR Code"></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="nav-link" href="/">Shorten Another Link</a>
+    <a class="nav-link"  href="{{ url_for('views.stats') }}">View Stats</a>
+
+ </div>
+ <script>
+
+    </script>
+</section>   
+{% endblock %}
+
